@@ -1,0 +1,17 @@
+#N canvas -8 -8 1920 998 10;
+#X declare -path abstractions;
+#X obj 61 6 PVOC_EVENT 1 2;
+#X obj 61 307 PVOC_EVENT 3 4;
+#X obj 61 608 PVOC_EVENT 5 6;
+#X obj 1819 264 r~ 1-rec;
+#X obj 1845 305 r~ 2-rec;
+#X obj 1812 369 writesf~ 2;
+#X msg 1877 202 start;
+#X msg 1880 236 stop;
+#X msg 1820 86 open pvoctest4.wav;
+#X obj 1812 437 declare -path abstractions;
+#X connect 3 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
