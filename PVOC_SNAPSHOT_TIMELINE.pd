@@ -1,0 +1,203 @@
+#N canvas -8 -8 1920 998 10;
+#X declare -path abstractions;
+#X obj 61 6 PVOC_EVENT 1 2;
+#X obj 1812 437 declare -path abstractions;
+#N canvas -56 66 944 982 GLOBAL_CONTROL 0;
+#X obj 120 154 bng 15 250 50 0 empty empty PVOC_EVENT 17 7 0 10 -262144
+-1 -1;
+#X obj 117 117 bng 20 250 50 0 empty empty play 17 7 0 10 -4034 -1
+-1;
+#X obj 120 171 bng 15 250 50 0 empty empty nominal_EVENT 17 7 0 10
+-262144 -1 -1;
+#X obj 120 189 bng 15 250 50 0 empty empty STOP 17 7 0 10 -262144 -1
+-1;
+#X obj 299 106 hsl 1250 15 0 1 0 0 empty empty TIMELINE -2 -8 0 10
+-262144 -1 -1 21900 1;
+#X obj 291 168 hsl 128 15 0.001 10000 0 0 empty empty empty -2 -8 0
+10 -262144 -1 -1 1300 1;
+#X obj 460 182 hsl 128 15 0.001 10000 0 0 empty empty empty -2 -8 0
+10 -262144 -1 -1 700 1;
+#X obj 460 154 hsl 128 15 0.001 10000 0 0 empty empty dly -2 -8 0 10
+-262144 -1 -1 0 1;
+#X text 318 150 fade in;
+#X text 473 198 PVOC_XFADE;
+#X floatatom 674 149 5 0 0 0 - - -, f 5;
+#X obj 671 130 / 1000;
+#X obj 765 142 hsl 128 15 -200 200 0 0 empty empty target_speed -2
+-8 0 10 -262144 -1 -1 6400 1;
+#X obj 765 164 hsl 128 15 0.001 30000 0 0 empty empty empty -2 -8 0
+10 -262144 -1 -1 1638 1;
+#X obj 628 164 hsl 128 15 0.001 10000 0 0 empty empty dly -2 -8 0 10
+-262144 -1 -1 0 1;
+#X floatatom 858 128 5 0 0 0 - - -, f 5;
+#X floatatom 725 180 5 0 0 0 - - -, f 5;
+#X obj 902 166 hsl 128 15 -4800 4800 0 0 empty empty target_transpo
+-2 -8 0 10 -262144 -1 -1 6351 1;
+#X obj 902 184 hsl 128 15 0 30000 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 1638 1;
+#X floatatom 998 199 5 0 0 0 - - -, f 5;
+#X msg 900 147 -149;
+#X obj 629 198 hsl 128 15 0.001 10000 0 0 empty empty dly -2 -8 0 10
+-262144 -1 -1 0 1;
+#X floatatom 724 213 5 0 0 0 - - -, f 5;
+#X floatatom 995 152 8 0 0 0 - - -, f 8;
+#X obj 901 132 bng 15 250 50 0 empty empty -149 17 7 0 10 -262144 -1
+-1;
+#X obj 1068 158 tgl 15 0 empty empty transpo_offset 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 1070 187 hsl 128 15 -4800 4800 0 0 empty empty target_transpo_offset
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X floatatom 1166 202 5 0 0 0 - - -, f 5;
+#X msg 1130 170 0;
+#X msg 1163 169 -149;
+#X msg 1068 140 -149;
+#X obj 1068 141 bng 15 250 50 0 empty empty -149 17 7 0 10 -262144
+-1 -1;
+#X obj 1267 175 hsl 128 15 0.001 30000 0 0 empty empty nominal_transpo_time
+-2 -8 0 10 -262144 -1 -1 300 1;
+#X obj 1267 138 hsl 128 15 0.001 30000 0 0 empty empty nominal_speed_time
+-2 -8 0 10 -262144 -1 -1 300 1;
+#X obj 1425 173 hsl 128 15 0.001 10000 0 0 empty empty empty -2 -8
+0 10 -262144 -1 -1 1400 1;
+#X floatatom 1521 188 5 0 0 0 - - -, f 5;
+#X obj 1511 205 / 1000;
+#X obj 1425 144 hsl 128 15 0.001 10000 0 0 empty empty dly -2 -8 0
+10 -262144 -1 -1 900 1;
+#X floatatom 1518 130 5 0 0 0 - - -, f 5;
+#X obj 1555 152 / 1000;
+#X obj 1661 137 hsl 50 15 0 1 0 0 empty empty PVOC_stereo_wide -2 -8
+0 10 -262144 -1 -1 0 1;
+#X obj 1657 104 tgl 15 0 empty empty wide_on_pvoc 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 1590 29 loadbang;
+#X msg 1590 51 0;
+#X floatatom 1554 107 5 0 0 0 - - -, f 5;
+#X obj 162 116 tgl 20 0 empty empty TOGGLE_REC 17 7 0 10 -258113 -1
+-1 0 1;
+#X obj 155 41 loadbang;
+#X msg 155 63 0;
+#X obj 176 484 writesf~ 2;
+#X obj 174 237 sel 1;
+#X msg 109 299 start;
+#X msg 90 351 stop;
+#X msg 185 274 open PVOC_REC.wav;
+#X obj 231 399 r~ 1-tomaster;
+#X obj 259 421 r~ 2-tomaster;
+#X obj 335 398 r~ 3-tomaster;
+#X obj 363 420 r~ 4-tomaster;
+#X obj 443 398 r~ 5-tomaster;
+#X obj 471 420 r~ 6-tomaster;
+#X obj 284 451 *~;
+#X obj 315 451 *~;
+#X obj 288 522 dac~;
+#X obj 1812 104 vsl 15 120 4e-006 8 1 0 empty empty master 0 -9 0 10
+-156819 -1 -1 10194 1;
+#X obj 1768 7 loadbang;
+#X msg 1781 54 1;
+#X obj 1707 432 rmstodb;
+#X floatatom 1772 213 5 0 0 0 - - -, f 5;
+#X obj 1725 461 - 100;
+#X msg 1795 328 \$1 20;
+#X obj 1799 362 line~;
+#X obj 1772 384 s~ masterfader;
+#X obj 381 485 r~ masterfader;
+#X obj 62 320 t b b;
+#X msg 48 355 0;
+#X obj -1 143 s global_play;
+#X obj -41 160 s global_pvoc_event;
+#X obj -40 180 s global_nom_event;
+#X obj -5 201 s global_stop;
+#X obj 262 52 s global_timeline;
+#X obj 291 244 s global_fadein;
+#X obj 459 251 s global_pvocxfade_dly;
+#X obj 436 276 s global_pvocxfade;
+#X obj 622 278 s global_speed_dly;
+#X obj 626 311 s global_transo_dly;
+#X obj 773 273 s global_speed_target;
+#X obj 948 274 s global_transo_target;
+#X obj 782 299 s global_speed_time;
+#X obj 961 300 s global_transo_time;
+#X obj 1274 275 s global_nom_speed;
+#X obj 1269 296 s global_nom_transpo;
+#X obj 1434 274 s global_nom_xfade_dly;
+#X obj 1429 295 s global_nom_xfade;
+#X obj 1622 294 s global_widemode;
+#X obj 1634 265 s global_wide_target;
+#X connect 0 0 75 0;
+#X connect 1 0 50 0;
+#X connect 1 0 74 0;
+#X connect 2 0 76 0;
+#X connect 3 0 72 0;
+#X connect 3 0 77 0;
+#X connect 4 0 44 0;
+#X connect 4 0 78 0;
+#X connect 5 0 79 0;
+#X connect 6 0 81 0;
+#X connect 6 0 14 0;
+#X connect 7 0 80 0;
+#X connect 11 0 10 0;
+#X connect 12 0 15 0;
+#X connect 12 0 84 0;
+#X connect 13 0 18 0;
+#X connect 13 0 86 0;
+#X connect 14 0 21 0;
+#X connect 14 0 82 0;
+#X connect 17 0 23 0;
+#X connect 17 0 85 0;
+#X connect 18 0 87 0;
+#X connect 20 0 17 0;
+#X connect 21 0 83 0;
+#X connect 24 0 20 0;
+#X connect 26 0 27 0;
+#X connect 28 0 26 0;
+#X connect 29 0 26 0;
+#X connect 30 0 26 0;
+#X connect 31 0 30 0;
+#X connect 32 0 89 0;
+#X connect 33 0 32 0;
+#X connect 33 0 37 0;
+#X connect 33 0 88 0;
+#X connect 34 0 36 0;
+#X connect 34 0 91 0;
+#X connect 36 0 35 0;
+#X connect 37 0 39 0;
+#X connect 37 0 90 0;
+#X connect 39 0 38 0;
+#X connect 40 0 93 0;
+#X connect 41 0 92 0;
+#X connect 42 0 43 0;
+#X connect 43 0 41 0;
+#X connect 45 0 49 0;
+#X connect 46 0 47 0;
+#X connect 47 0 45 0;
+#X connect 49 0 52 0;
+#X connect 50 0 48 0;
+#X connect 51 0 48 0;
+#X connect 52 0 48 0;
+#X connect 53 0 59 0;
+#X connect 54 0 60 0;
+#X connect 55 0 59 0;
+#X connect 56 0 60 0;
+#X connect 57 0 59 0;
+#X connect 58 0 60 0;
+#X connect 59 0 48 0;
+#X connect 59 0 61 0;
+#X connect 60 0 48 1;
+#X connect 60 0 61 1;
+#X connect 62 0 65 0;
+#X connect 62 0 68 0;
+#X connect 63 0 64 0;
+#X connect 64 0 62 0;
+#X connect 65 0 67 0;
+#X connect 67 0 66 0;
+#X connect 68 0 69 0;
+#X connect 69 0 70 0;
+#X connect 71 0 59 1;
+#X connect 71 0 60 1;
+#X connect 72 0 73 0;
+#X connect 72 1 51 0;
+#X connect 73 0 45 0;
+#X coords 0 -1 1 1 1750 130 1 100 100;
+#X restore 61 -123 pd GLOBAL_CONTROL;
+#X obj 61 307 PVOC_EVENT 3 4;
+#X obj 61 608 PVOC_EVENT 5 6;
