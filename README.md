@@ -4,7 +4,7 @@ Pure data prototype. based on Miller Puckette's Phase.vocoder patch. can be used
 # Fast Setup
 
 1. Get pure data 0.47.1 https://puredata.info/downloads/pure-data/releases/0.47-1
-2. Launch Patch PVOC_SNAPSHOT_TIMELINE.pd (enable DPS on)
+2. Launch Patch PVOC_SNAPSHOT_TIMELINE.pd (enable DSP on)
 3. Load stereo PCM.wav File
 4. Play 
 5. Setup Xfade time, Speed Target, time to target speed, transpo...
